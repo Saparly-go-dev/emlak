@@ -1,0 +1,15 @@
+services:
+  mekan:
+    build: .
+    init: true
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - mekan-data:/app/data
+    environment:
+      APP_ORIGIN: ${APP_ORIGIN:-http://127.0.0.1:3000}
+      COOKIE_SECURE: ${COOKIE_SECURE:-0}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+    restart: unless-stopped
+volumes:
+  mekan-data:

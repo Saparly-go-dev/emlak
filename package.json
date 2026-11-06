@@ -1,0 +1,28 @@
+{
+  "name": "mekan",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "npm run build -w @mekan/web && npm run build -w @mekan/api",
+    "start": "node --env-file-if-exists=.env apps/api/dist/index.js",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "check": "npm run typecheck",
+    "test": "npm run test --workspaces --if-present",
+    "db:migrate": "npm run db:migrate -w @mekan/api",
+    "test:smoke": "node scripts/smoke.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "tsx": "^4.21.0",
+    "@types/node": "^24.0.0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@mekan/contracts",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "exports": "./src/index.ts",
+  "dependencies": {
+    "zod": "^4.1.11"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}
